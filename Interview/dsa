@@ -1,1 +1,48 @@
 
+S09125,9131,9164,9175,9194,9207,9217,9236,9242,9246,9257,9289,9294,9324,9346,9357,9365,9374
+
+import java.util.*;
+class Solution {
+  public static void main(String[] args) {
+    String str="Arunima";
+   char[] charArray=str.toCharArray();
+   HashMap<Character,Integer> hashmap=new HashMap<>();
+   for(int i=0;i<str.length();i++)
+   hashmap.put(charArray[i],hashmap.getOrDefault(charArray[i],0)+1);
+   for(int i=0;i<charArray.length();I++)
+   System.out.println(charArray[i],hashMap.getValues);
+
+   }
+    
+  }
+
+function rotate(nums: number[], k: number): void {
+    if (k > nums.length) { k = k % nums.length }
+    let temp = nums.slice(nums.length - k, nums.length);
+    let length = nums.length - 1;
+    nums.splice(0, 0, ...temp)
+    nums.splice(length + 1, k)
+};
+```
+function twoSum(nums: number[], target: number): number[] {
+    let res = [];
+    // let i, j;
+    for (let i = 0; i <= ((nums.length) - 1); i++) {
+        for (let j = i + 1; j <= (nums.length); j++) {gapJPO\
+            if (//‘“
+‘«[I] + nums[j] === target) {
+                return [i, j];
+            }
+        }
+    }
+    return [];
+}
+
+let solution = twoSum([2, 7, 11, 15], 9)
+console.log(solution);
+
+
+ZIkjr2C7g8pPNqMXgWhC7QiOaBOHqhFQ
+
+
+
