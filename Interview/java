@@ -1,1 +1,170 @@
 
+Java Interview
+1. Java 8 feature
+2. ExceptionHandler
+3. Custom exceptions
+  4. Design patterns in java
+5.Cloneable 
+6. Marker Interface
+7. Hashmap internal working
+8. Can we have duplicate keys and values in Hashmat
+9. Difference between arrayList and linkedList
+10. Difference between set and list
+11. @Qualifier
+12. Authentication and authorisation 
+13. Microservices communication ?
+14. API gateways?
+15. Docker
+16. AWS services
+17. Database-?
+18. @Entity
+19. Filteration based on salary
+ 20.geters,setters,toString in java
+ 21.Solid Principles in java
+ 22. What is Meta Space in Java.
+ 23.Flat map in java:
+    import java.util.List;
+    import java.util.*;
+    import java.util.stream.Collectors;
+    class Main {
+    public static void main(String[] args) {
+        System.out.println(“FlatMap Implementation”);
+        List<Integer> prime=Arrays.asList(2,3,5);
+        List<Integer> odd=Arrays.asList(1,3,5);
+        List<Integer> even=Arrays.asList(2,4,6);
+        List<List<Integer>> lists=Arrays.asList(prime,odd,even);
+        List<Integer> flattenedList=lists.stream().flatMap(list->list.stream()).collect(Collectors.toList());       
+        System.out.println(flattenedList);
+    }}
+24.Find longest String in String List.
+import java.util.List;
+import java.util.ArrayList;
+     class Main {
+     public static void main(String[] args) {
+        System.out.println("Program to find longest word in String List");
+        List<String> sentence=new ArrayList<>();
+        sentence.add("This");
+        sentence.add("is");
+        sentence.add("Arunima");
+        sentence.add("Singh");
+        sentence.add("From");
+        sentence.add("Noida");
+        String max="";
+        int maxLength=0;
+        for(int i=0;i<sentence.size();i++)
+        {
+         if(maxLength<sentence.get(i).length())
+         {
+             maxLength=sentence.get(i).length();
+             max=sentence.get(i);
+         }
+         
+        }
+        System.out.println(max);
+    }
+  
+25.Program to find second largest number using streams.
+ 
+import java.util.*;
+import java.util.Comparator;
+import java.util.Optional;
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Program to find second largest element using streams");
+        List<Integer> numbers = Arrays.asList(10, 20, 35, 50, 50, 75, 65);
+       
+        Optional<Integer> secondLargest=numbers.stream()
+        .distinct()
+        .sorted(Comparator.reverseOrder())
+        .skip(1).
+        findFirst();
+        System.out.println(secondLargest.get());
+}}       
+
+26. Program to find numbers starting with 1.(With boxed)
+
+import java.util.*;
+import java.util.Comparator;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Program to find numbers starting with 1");
+        int[] numbers = {10, 121, 35, 50, 50, 75, 65};
+       
+        List<Integer> numbersStartingwithOne =Arrays.stream(numbers)
+        .filter(num->String.valueOf(num).startsWith("1"))
+        .boxed()
+        .collect(Collectors.toList());
+        
+        System.out.println(numbersStartingwithOne);
+}}
+(Without boxed)
+
+import java.util.*;
+import java.util.Comparator;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Program to find numbers starting with 1");
+        List<Integer> numbers = Arrays.asList(18,20,55,1,2);
+        List<Integer> numbersStartingwithOne = numbers.stream()
+        .filter(num->String.valueOf(num).startsWith("1"))
+        .collect(Collectors.toList());
+        System.out.println(numbersStartingwithOne);
+}}
+
+27. Spring bean lifecycle methods.
+28. Find frequency of each alphabet in String
+    import java.util.stream.Collectors;
+    import java.util.Map;
+    import java.util.function.Function;
+    class Main {
+    public static void main(String[] args) {
+        System.out.println("Find count of each character in String");
+        String str="HelLO World";
+        Map<Character, Long> freqMap =str.toLowerCase().chars().mapToObj(c -> (char) c).filter(c->c!=' ').collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+        freqMap.forEach((ch, count) -> System.out.println("'" + ch + "' : " + count));
+    }
+}
+29.Java Program to Count the Occurrences of Each Character Using HashMap(2)
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class CharacterCountUsingHashMap {
+    public static void main(String[] args) {
+        // Step 1: Read the string from the user
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Enter a string: ");
+            String input = scanner.nextLine();
+            
+            // Step 2: Initialize the HashMap
+            Map<Character, Integer> charCountMap = new HashMap<>();
+            
+            // Step 3: Iterate through the string and update the HashMap
+            for (char ch : input.toCharArray()) {
+                charCountMap.put(ch, charCountMap.getOrDefault(ch, 0) + 1);
+            }
+            
+            // Step 4: Display the character counts
+            System.out.println("Character occurrences:");
+            for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+            }
+        }
+    }
+}
+
+30.Hierarchy of class loaders in Java.
+Bootstrap, extension ,application class loader
+
+31.Types of memory in JVM
+32.Fail fast and fail safe
+33. Types of iterators in java
+34. 
