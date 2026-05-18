@@ -1,0 +1,40 @@
+# Backend - Maven
+backend/target/
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/*.jar
+backend/*.war
+backend/bin/
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/.mvn/wrapper/maven-wrapper.properties
+backend/.DS_Store
+
+# Backend - IDE
+backend/.vscode/
+backend/.idea/
+backend/*.iml
+backend/*.iws
+backend/*.ipr
+
+# Frontend - Node
+frontend/node_modules/
+frontend/npm-debug.log
+frontend/yarn-error.log
+frontend/build/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Frontend - IDE
+frontend/.vscode/
+frontend/.idea/
+frontend/*.iml
+
+# General
+.DS_Store
+.env
+*.log
+.classpath
+.project
