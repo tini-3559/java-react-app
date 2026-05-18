@@ -1,1 +1,86 @@
 
+Java
+
+
+Custom annotation, get data from jpa spring boot, longest string using java streams,altimterix- brackets
+
+StringChecker
+
+import java.util.ArrayList;
+import java.util.List;
+class StringChecker {
+  public static boolean checkString(String str,List<String> list) {
+  if(list.contains(str))
+  return true;
+  return false;
+  }
+  public static void main(String[] args)
+  {  
+  List<String> arrayAsStringList=new ArrayList<String>();
+  arrayAsStringList.add("bbc");
+  arrayAsStringList.add("abc");
+  boolean rem=checkString("bbc", arrayAsStringList);
+  System.out.print(rem);
+}}’
+
+RemoveDuplicates:
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
+
+
+class CheckDuplicates {
+  public static List<String> checkDup(String str,List<String> list) {
+  Set<String> set=new HashSet<>(list);
+  return new ArrayList<>(set);  
+  }
+   
+  public static void main(String[] args)
+  {  
+  List<String> arrayAsStringList=new ArrayList<String>();
+  arrayAsStringList.add("bbc");
+  arrayAsStringList.add("abc");
+  arrayAsStringList.add("bbc");
+  List<String> rem=checkDup("bbc", arrayAsStringList);
+  System.out.print(rem);
+  }
+}
+
+
+Creation of thread :
+
+Public class mythread implements Thread{
+Void run()
+{
+syso(“Thread is running”);
+}
+
+Public class main{
+Public static void main(String args[])
+{
+Mythread thread= new Mythread()
+Thread.start()
+}}
+}
+
+
+class MyRunnable implements Runnable {
+    public void run() {
+        System.out.println("Thread running by implementing Runnable interface");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Thread thread = new Thread(new MyRunnable());
+        thread.start();
+    }
+}
+
+
+
+
+
+
