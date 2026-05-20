@@ -4,7 +4,7 @@ Java
 
 Custom annotation, get data from jpa spring boot, longest string using java streams,altimterix- brackets
 
-StringChecker
+1. StringChecker
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ class StringChecker {
   System.out.print(rem);
 }}’
 
-RemoveDuplicates:
+2. RemoveDuplicates:
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +46,20 @@ class CheckDuplicates {
   List<String> rem=checkDup("bbc", arrayAsStringList);
   System.out.print(rem);
   }
+}
+
+3. Print non-duplicate characters in a string using Java Streams:
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+      List<Integer> numbers= Arrays.asList(1,2,5,7,5,2);
+      Set<Integer> seen = new HashSet<>();
+      List<Integer> duplicates= numbers.stream().filter(n->!seen.add(n)).collect(Collectors.toList());
+      System.out.println(duplicates);
+    }
 }
 
 
