@@ -1,0 +1,78 @@
+// 342. Power of Four
+
+function isPowerOfFour(n: number): boolean {
+
+    let i=0;
+    while(n>=Math.pow(4,i))
+    {
+        if(n===Math.pow(4,i))
+        return true;
+        else
+        {
+        isPowerOfFour(i)
+        i++;
+        }
+    }
+    return false
+
+    }
+
+
+    // 22. Generate Parentheses
+
+    function generateParenthesis(n: number): string[] {
+    let result: string[]=[];
+    let current: string=""
+    result = generateParen(result,n, "", 0, 0)
+    return result
+
+};
+
+function generateParen(result: string[], n: number, current: string, open: number, close: number) {
+
+    if (current.length === 2 * n) {
+        result.push(current)
+        return;
+    }
+    if (open < n)
+        generateParen(result, n, current + '(', open + 1, close)
+    if (close < n && close<open)
+        generateParen(result, n, current + ')', open, close + 1)
+
+    return result
+
+}
+
+39. Combination Sum
+function combinationSum(candidates: number[], target: number): number[][] {
+    let result: number[][] = []
+    let current: number[] = []
+    let index = 0;
+    result = findSubset(candidates, index, result, current, target)
+    return result
+
+};
+
+function findSubset(candidates: number[], index: number, result: number[][], current: number[], target: number): number[][] {
+    // check if conditions carefully
+    let sum = current.reduce((acc, val) => acc + val, 0);
+    if (target === sum) {
+        result.push([...current]);
+        return;
+    }
+    if (sum > target || index >= candidates.length) {
+        return;
+    }
+    else {
+        current.push(candidates[index]);
+        findSubset(candidates, index, result, current, target);
+        current.pop();
+        findSubset(candidates, index + 1, result, current, target);
+    }
+    return result
+
+}
+
+
+
+
