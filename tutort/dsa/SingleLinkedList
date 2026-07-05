@@ -1,0 +1,143 @@
+        class Node
+        {
+            data: number;
+            next: Node | null;
+
+            constructor(data: number)
+            {
+                this.data = data;
+                this.next = null;
+            }
+        }
+
+        class SingleLinkedList
+        {
+            head: Node | null;
+            size: number;
+            tail: Node | null;
+
+            constructor()
+            {
+                this.head = null;
+                this.size = 0;
+
+            }
+            insertAtBeginning(data: number): void
+            {
+                if(head === null)
+                {
+                   head=tail=new Node(data);
+                   this.size++;
+                }
+                else
+                {
+                    let newNode = new Node(data);
+                    newNode.next = this.head;
+                    this.head = newNode;
+                    this.size++;
+                }
+                
+            }
+            insertAtEnd(data: number): void
+            {
+              if(this.head === null)
+              {
+                this.head=this.tail=new Node(data);
+                this.size++;
+              }
+              else
+              {
+                let newNode = new Node(data);
+                this.tail.next = newNode;
+                this.tail = newNode;
+                this.size++;
+              } 
+            }
+            insertMiddle(data: number, position: number): void
+            {
+                
+
+                
+            }
+               
+          deleteAtBeginning(): void
+          {
+            if(this.head === null)
+            {
+
+                console.log("List is empty");
+                return;
+            }
+            else
+            {
+                this.head = this.head.next;
+                this.size--;
+            }
+          }
+          deleteAtEnd(): void{
+             if(this.head === null)
+             {
+                console.log("List is empty");
+                return;
+             }
+             else if(this.head === this.tail)
+             {
+                this.head = this.tail = null;
+                this.size--;
+                return;
+             }
+             else
+             {
+                let current = this.head;
+                while(current.next !== this.tail)
+                {
+                    current = current.next;
+                }
+                current.next = null;
+                this.tail = current;
+                this.size--;
+             }
+          }
+          transverse(): void
+          {
+            if(this.head === null)
+            {
+                console.log("List is empty");
+                return;
+            }
+            else
+            {
+                let current = this.head;
+                while(current !== null)
+                {
+                    console.log(current.data);
+                    current = current.next;
+                }
+            }
+          }
+
+
+
+
+
+        //   {
+        //     if(this.head === null)
+        //     {
+        //         console.log("List is empty");
+        //         return;
+        //     }
+        //     else
+        //     {
+        //         let current = this.head;
+        //         while(current.next !== this.tail)
+        //         {
+        //             current = current.next;
+        //         }
+        //         current.next = null;
+        //         this.tail = current;
+        //         this.size--;
+        //     }
+          }
+            
+
+        }

@@ -62,3 +62,7 @@ console.log("peak",stack.peek())
 console.log("Pop",stack.pop())
 
 
+
+
+
+

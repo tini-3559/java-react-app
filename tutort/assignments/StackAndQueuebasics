@@ -1,0 +1,124 @@
+// 1. Baseball Game
+
+
+function calPoints(operations: string[]): number {
+    let stack: number[] = [];
+
+    for (let i = 0; i < operations.length; i++) {
+        let op = operations[i];
+        let opNum = Number(op);
+
+        if (Number.isFinite(opNum)) {
+            // numeric value
+            stack.push(opNum);
+        } else if (op === "+") {
+            // sum of last two scores
+            let a = stack[stack.length - 1];
+            let b = stack[stack.length - 2];
+            stack.push(a + b);
+        } else if (op === "D") {
+            // double last score
+            let last = stack[stack.length - 1];
+            stack.push(last * 2);
+        } else if (op === "C") {
+            // remove last score
+            stack.pop();
+        }
+    }
+
+    // total sum
+    return stack.reduce((acc, val) => acc + val, 0);
+}
+
+// 2.Min Stack
+
+class MinStack {
+    private stack;
+    constructor() {
+        this.stack = [];
+
+    }
+
+    push(val: number): void {
+        this.stack.push({ val,
+                           min: this.stack.length === 0 ? val : Math.min(val, this.getMin()) 
+                        })
+    }
+
+    pop(): void {
+        this.stack.pop()
+    }
+
+    top(): number {
+        return this.stack[this.stack.length - 1].val
+    }
+
+    getMin(): number {
+        return this.stack.length === 0 ? 0 : this.stack[this.stack.length - 1].min
+
+    }
+}
+
+// 3.Decode String 
+function decodeString(s: string): string {
+    // do again // try with two stack as well
+    const stack: string[] = [];
+
+    for (const char of s) {
+        if (char !== "]") {
+            // push everything except closing bracket
+            stack.push(char);
+        } else {
+            // build substring until '['
+            let sub = "";
+            while (stack.length && stack[stack.length - 1] !== "[") {
+                sub = stack.pop()! + sub;
+            }
+
+            // remove '['
+            stack.pop();
+
+            // build number
+            let numStr = "";
+            while (stack.length && !isNaN(Number(stack[stack.length - 1]))) {
+                numStr = stack.pop()! + numStr;
+            }
+            const repeatTimes = parseInt(numStr, 10);
+
+            // repeat substring and push back
+            stack.push(sub.repeat(repeatTimes));
+        }
+    }
+
+    // join everything left in stack
+    return stack.join("");
+
+    
+}
+
+// 4. Valid Parentheses
+
+function isValid(s: string): boolean {
+    let stack: string[] = [];
+    const map = new Map<string, string>([
+        [')', '('],
+        ['}', '{'],
+        [']', '[']
+    ]);
+    for (let char of s) {
+        if (char === '(' || char === '{' || char === '[')
+            stack.push(char);
+        else {
+            if (stack[stack.length - 1] !== map.get(char))
+                return false;
+            stack.pop()
+        }
+ 
+    }
+    return stack.length===0
+
+};
+
+
+
+

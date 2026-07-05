@@ -1,6 +1,5 @@
-1.	Search in rotated array
-
-   function search(nums: number[], target: number): number {
+// 1.	Search in rotated array
+function search(nums: number[], target: number): number {
     let left = 0;
     let right = nums.length - 1;
     let mid;
@@ -28,7 +27,7 @@ return -1
 
 2.Peak Index in mountain array
 
-function peakIndexInMountainArray(arr: number[]): number {
+    function peakIndexInMountainArray(arr: number[]): number {
     // similar to peak element
     let left = 0;
     let right: number = arr.length - 1;

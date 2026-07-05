@@ -1,0 +1,106 @@
+class Queue
+{
+private arr:number[];
+private front:number;
+private rear:number;
+private capacity:number;
+private size:number;
+
+constructor(capacity:number)
+{
+this.front=0;
+this.rear=-1;
+this.capacity=capacity;
+this.arr = new Array(capacity);
+this.size=0;
+}
+
+push(item:number):number
+{
+    if(this.isFull())
+    {
+        return -1;
+    }
+    this.rear++;
+    this.arr[this.rear]=item;
+    return item;
+}
+
+pop():number
+{
+    if(this.isEmpty())
+    {
+        return -1;
+    }
+    let item=this.arr[this.front];
+    this.front++;
+    return item;
+}
+isEmpty():boolean
+{
+return this.front>this.rear;
+}
+
+isFull():boolean
+{
+    return this.rear==this.capacity-1;
+}
+
+remove():number
+{
+    if(this.isEmpty())
+    {
+       
+        return -1;
+    }
+    let item=this.arr[this.front];
+    this.front++;
+    return item;
+}
+
+poll():number
+{
+    return this.remove();
+}
+
+insert(item:number):number
+{
+    if(this.isFull())
+    {
+        return -1;
+    }
+    this.rear++;
+    this.arr[this.rear]=item;
+    return item;
+}
+
+peekRear():number
+{
+    if(this.isEmpty())
+    {
+        return -1;
+    }
+    return this.arr[this.rear];
+}
+
+peekFront():number
+{
+    if(this.isEmpty())
+    {
+        return -1;
+    }
+    return this.arr[this.front];
+}
+
+display():void
+{
+    if(this.isEmpty())
+    {
+        return;
+    }
+    for(let i=this.front;i<=this.rear;i++)
+    {
+        console.log(this.arr[i]);
+    }
+}
+}

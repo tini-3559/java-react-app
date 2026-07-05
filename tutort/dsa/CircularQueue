@@ -1,0 +1,20 @@
+
+class CircularQueue
+{
+private arr:number[];
+private front:number;
+private rear:number;
+private capacity:number;
+
+constructor(capacity:number)
+{
+this.front=0;
+this.rear=-1;
+this.capacity=capacity;
+this.arr = new Array(capacity);
+}
+push()
+{
+ rear=rear+1 %capacity   
+}
+}
