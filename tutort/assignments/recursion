@@ -43,7 +43,7 @@ function generateParen(result: string[], n: number, current: string, open: numbe
 
 }
 
-39. Combination Sum
+ 39. Combination Sum
 function combinationSum(candidates: number[], target: number): number[][] {
     let result: number[][] = []
     let current: number[] = []
