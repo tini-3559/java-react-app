@@ -1,4 +1,4 @@
-//1. two sum
+1. two sum
 function twoSum(nums: number[], target: number): number[] {
     // imp- we cannot  use 2 pointers as we would need to adjust indexes.This array has unsorted values
     //use hashing
@@ -31,4 +31,145 @@ function twoSum(numbers: number[], target: number): number[] {
     return [];
     
 };
+
+4. Pascal Traingle-i
+function generate(numRows: number): number[][] {
+    let arr: number[][] = [];
+    let temp: number[] = [1];
+   
+    for (let i = 1; i <= numRows; i++) {
+        let oldTemp=[...temp]
+        
+        for (let j = 1; j <=i; j++) {
+            
+           
+            if ( j === i)
+            temp[j] = 1;
+            else
+            temp[j]=oldTemp[j-1]+oldTemp[j]
+        }
+         console.log(oldTemp)
+        arr.push(oldTemp);
+        oldTemp=[];
+       
+    }
+    return arr;
+};
+
+
+//optimized version to reduce space complexity O(k^2)-->O(k)
+// function getRow(rowIndex: number): number[] {
+//     const row: number[] = [1];
+
+//     for (let i = 1; i <= rowIndex; i++) {
+//         row.push(1); // add trailing 1
+//         for (let j = i - 1; j > 0; j--) {
+//             row[j] = row[j] + row[j - 1];
+//         }
+//     }
+
+//     return row;
+// }
+
+5.Pascal Traingle -2
+
+function getRow(rowIndex: number): number[] {
+    let arr: number[][] = [];
+    let temp: number[] = [1];
+   
+    for (let i = 1; i <= rowIndex; i++) {
+        let oldTemp=[...temp]
+        
+        for (let j = 1; j <=i; j++) {
+            
+           
+            if ( j === i)
+            temp[j] = 1;
+            else
+            temp[j]=oldTemp[j-1]+oldTemp[j]
+        }
+        arr.push(oldTemp);
+       
+    }
+    
+
+    return temp
+};
+
+6.   121: Best Time to Buy and Sell Stock
+
+
+function maxProfit(prices: number[]): number {
+    let minPrice = Infinity;
+    let maxProfit = 0;
+
+    for (const price of prices) {
+        // Update minimum price so far
+        minPrice = Math.min(minPrice, price);
+
+        // Calculate profit if sold today
+        maxProfit = Math.max(maxProfit, price - minPrice);
+    }
+
+    return maxProfit;
+}
+
+7.  122. Best Time to Buy and Sell Stock II
+function maxProfit(prices: number[]): number {
+    let profit=0;
+    for (let i = 0; i < prices.length; i++) {
+        if (prices[i + 1] > prices[i])
+            profit = profit + prices[i + 1] - prices[i];
+    }
+    return profit
+}
+
+8. 169. Majority Element
+
+
+function majorityElement(nums: number[]): number {
+    let arraySize:number = nums.length
+    let map: Map<number, number> = new Map();
+    for (let i = 0; i < nums.length; i++) {
+        map.set(nums[i], (map.get(nums[i]) || 0) + 1);
+    }
+  
+  // remember this for map
+   for (const [key, val] of map.entries()) {
+    if (val > arraySize / 2) {
+        return key;
+    }
+}
+
+    return -1
+
+};
+
+229. Majority Element II
+
+
+function majorityElement(nums: number[]): number[] {
+    // Boyer–Moore Voting Algorithm uses O(1) space
+    let arraySize: number = nums.length
+    let map: Map<number, number> = new Map();
+    let arr:number[]=[]
+    for (let i = 0; i < nums.length; i++) {
+        map.set(nums[i], (map.get(nums[i]) || 0) + 1);
+    }
+
+    // remember this for map
+    for (const [key, val] of map.entries()) {
+        if (val > arraySize / 3) {
+            arr.push(key);
+        }
+    }
+
+    return arr
+
+};
+
+//3 & 10 todo
+
+
+
 
